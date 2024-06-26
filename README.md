@@ -1,15 +1,22 @@
-# Application Of Various Statistical Techniques and Their Real-Life Applications on Adidas Retail Dataset
+# Real-Life Application Of Various Statistical Techniques on Adidas Retail Dataset
 
 ## Table of contents
 
 - [Introduction](#introduction)
-- [Dataset Overview and Preparation](#dataset-overview-and-Preparation)
+- [Dataset Overview and Preparation](#dataset-overview-and-preparation)
 - [Descriptive Statistics](descriptive-statistics)
 - [Objective](#objective)
 - [Testing Parametric Test](#testing-parametric-test)
 - [Application of Statistical Techniques](#application-of-statistical-techniques)
-- [Classification Task: Customer Segmentation](#classification-task:-customer-segmentation)
-- [Prediction Task: Optimal Pricing Prediction](#prediction-task:-optimal-pricing-prediction)
+- [One Way Anova](#one-way-anova)
+- [Multiple Regression](#multiple-regression)
+- [Variance Inflation Factor](#variance-inflation-factor)
+- [One Sample T.Test](#one-sample-t-test)
+- [Pearson Correlation](#pearson-correlation)
+- [Kruskal Wallis](#kruskal-wallis)
+- [Mood’s Median Test](moods-median-test)
+- [Chi Squared](#chi-squared)
+- [Conclusion](#conclusion)
 
 
 # Introduction
@@ -80,7 +87,7 @@ Inference: The data points for (Sales and Unit_Price) roughtly fall along a stra
 # Application of Statistical Techniques
 I’m embarking on the application of various statistical techniques, as the selected variables in the dataset have successfully met the assumptions required for various statistical analyses. This ensures the reliability and validity of the results obtained from each applied statistical method in addressing specific problem statements.
 
-### Parametric Test: One-Way Anova
+### One Way Anova
 Problem Statement 1:
 I’m investigating the impact of sales methods, categorized as ‘Online’. ‘In-store, Outlet’ on the sales figures. Hypotheses:
 • Null Hypothesis (H0): No significant difference in mean sales figures across sales methods; any observed variation is random.
@@ -112,7 +119,7 @@ Each level of a categorical variable is represented by a binary indicator (dummy
 Inference: The regression model aims to predict profit based on unit price, product type, and region. Here’s the Inference of the key components: The p-values provide insights into the significance of the predictors in the multiple regression model. The intercept has a highly significant p-value, indicating that the estimated profit is significantly different from zero when all other predictors are zero. HoIver, the unit price does not have a significant effect on profit, as its p-value is (0.412).
 Among the product categories, “Men’s Street FootIar” and “Women’s Apparel” have significant positive effects on profit, as their p-value is obviously less than 0.05, while “Men’s Athletic” and “Women’s Athletic” do not. In terms of regions, “Northeast,” “South,” “Southeast,” and “Ist” all have significant effects on profit. The overall model is significant, suggesting that at least one predictor variable significantly contributes to the model.The Multiple R-squared and Adjusted R-squared values suggest that the model explains around 14.86% of the variance in profit. The residuals have a mean of approximately zero, indicating a good fit. To confirm the fitting of the regression model without assumption, I’m going to test the fitting using VIF (Variance Inflation Factor)
  
-### Variance Inflation Factor (VIF)
+### Variance Inflation Factor
 To calculate the fitting the regression model. The VIF will help me to assesses the level of multicollinearity among the predictor variables in the regression model. Multicollinearity is a condition where two or more predictor variables in a regression model are highly correlated, which makes it challenging to determine the individual contribution of each variable, if high multicollinearity is detected, I may need to address it. This could involve removing one of the correlated variables, combining variables, or using other advanced techniques.
 
 ![Screen Shot 2024-06-18 at 17 50 27](https://github.com/AdedotunTemi/Application-of-Statistical-Technique-on-Data-Analysis-R/assets/168010102/3111c298-a03a-42c3-b887-592f2aae7dfd)
@@ -120,17 +127,8 @@ To calculate the fitting the regression model. The VIF will help me to assesses 
 Inference: For each predictor in my model unit_price, Product, and Region, The VIF values above indicate low levels of multicollinearity. Each predictors have their independence, that indicate a reliable Inference in the regression model. for Unit Price is approximately 1.0059. with a GVIF close to 1, there is minimal evidence of multicollinearity associated with Unit Price, suggesting that it does not significantly contribute to increased variance in the regression coefficients.
 The VIF for Product is around 1.0098. While there is a slight increase in variance due to potential multicollinearity, it remains relatively low. The seven degrees of freedom indicate the number of levels in the categorical variable “Product. The VIF for Region is approximately 1.0090. Similar to Product, there is a minor increase in variance, but it remains at an acceptable level. The four degrees of freedom correspond to the levels in the categorical variable “Region”.
 
-### Problem Statement 3
-One-Sample T-Test
- The retail store is curious to know if the recent sales figures show a meaningful shift from the usual average of 100,000, potentially influenced by early bulk supply. In simpler terms, I want to see if there’s a real impact on sales. To do this, I will be running a one-sample t-test, checking if the current sales average is significantly different from the previous average sale of 100,000.
- 
-Hypotheses:
-• Null Hypothesis (H0): The mean sales figure remains unchanged and equals $100,000.
-• Alternative Hypothesis (H1): There is a significant difference in the mean sales figures, suggesting an
-impact from early bulk supply.
-
-### Problem Statement 3
-One-Sample T-Test
+### One-Sample T-Test 
+Problem Statement 3
  The retail store is curious to know if the recent sales figures show a meaningful shift from the usual average of 100,000, potentially influenced by early bulk supply. In simpler terms, I want to see if there’s a real impact on sales. To do this, I will be running a one-sample t-test, checking if the current sales average is significantly different from the previous average sale of 100,000.
  
 Hypotheses:
@@ -164,7 +162,7 @@ Methodology: I will employ the Pearson correlation, which enables me to measure 
 Inference:The p-value of 0.5617 shows that there is no significant evidence to reject the null hypothesis of no correlation between “Sales” and “Profit.” which indicate that the observed correlation between sales and profit could likely be due to random chance. Therefore, based on this p-value, I fail to reject the null hypothesis, there is no strong linear relationship between sales and profit in the dataset. coefficient may indicate a numerical relationship between the variables, the p-value helps assess the statistical significance of that relationship. The correlation coefficient between “Sales” and “Profit” is approximately [0.01368672].
 This value is close to zero, suggesting a very weak positive correlation between sales and profit. A correlation coefficient close to 0 indicates a weak or no linear correlation. The correlation between sales and profit is very weak, suggesting that the two variables do not have a strong linear relationship. It implies that changes in sales are not strongly associated with changes in profit in a linear fashion based on the given dataset. Other factors or non-linear relationships may be influencing the relationship between sales and profit.
 
-### Kruskal-Wallis Test
+### Kruskal Wallis 
 Problem Statement 5:
 The retail store aims to understand if there are significant differences in profit outcomes among different regions. This essential for providing valuable insights for optimizing business strategies across diverse geographic areas.
 
@@ -192,7 +190,7 @@ Methodology: To investigate this, I will employ Mood’s Median Test, a non-para
 
 Inference: The Asymptotic K-Sample Brown-Mood Median Test was conducted to assess whether there are significant differences in profit across various cities. The low p-value (< 2.2e-16) indicates strong evidence against the null hypothesis (H0), that there is no significant difference in the median profit across different cities. Therefore, I reject the null hypothesis in favor of the alternative hypothesis (H1). This suggests that there is a significant difference in the median profit among the cities represented in the dataset. The results of the Mood’s Median Test imply that the profitability of the retail store varies significantly across different cities.
 
-## Chi-Squared Test
+## Chi Squared 
 Problem Statement 7:
 The retail store is interested in assessing whether there is a significant association betweenthe categorical variables “Region” and “Sales_Method” in the retailset dataset. Specifically, the goal is to determine if the distribution of sales methods varies across different regions.
 
